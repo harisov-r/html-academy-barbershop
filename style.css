@@ -1,7 +1,11 @@
 body {
-    background-color: purple;
+    background-color: #EBDEBD;
 }
 
 p {
     color: red;
+}
+
+h1 {
+    color: white;
 }
