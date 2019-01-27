@@ -18,3 +18,8 @@ table {
 td {
     border: 3px solid lightgray;
 }
+
+.logo {
+    border: 1px solid brown;
+    background: aquamarine;
+}
