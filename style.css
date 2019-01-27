@@ -9,3 +9,12 @@ p {
 h1 {
     color: white;
 }
+
+table {
+    border: 6px solid black;
+    border-collapse: collapse;
+}
+
+td {
+    border: 3px solid lightgray;
+}
