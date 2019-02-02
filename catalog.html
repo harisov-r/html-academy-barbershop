@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Барбершоп "Бородинский"</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="main-navigation">
+            <ul class="site-navigation">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="info.html">Информация</a></li>
+                <li><a href="news.html">Новости</a></li>
+                <li><a href="price.html">Прайс-лист</a></li>
+                <li><a href="catalog.html">Магазин</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+            <ul class="user-navigation">
+                <li><a class="login-link">Вход</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>СРЕДСТВА ДЛЯ УХОДА</h1>
+        <section class="sub-references">
+            <ul class="ul-sub-references">
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">Магазин</a></li>
+                <li><a href="#">Средства для ухода</a></li>
+            </ul>
+        </section>
+
+        <section class="selection">
+            <form class="selection-form" action="https://echo.htmlacademy.ru" method="post">
+
+                <section class="manufacturers">
+                    <h2>Производители:</h2>
+                    <input type="checkbox" name="baxter" id="baxter-field" checked>
+                    <label for="baxter-field">Baxter Of Calofornia</label>
+
+                    <input type="checkbox" name="natty" id="natty-field">
+                    <label for="natty-field">Mr. Natty</label>
+
+                    <input type="checkbox" name="suavecito" id="suavecito-field" checked>
+                    <label for="suavecito-field">Suavecito</label>
+
+                    <input type="checkbox" name="baxter" id="baxter-field">
+                    <label for="baxter-field">Baxter Of Calofornia</label>
+
+                    <input type="checkbox" name="baxter" id="baxter-field">
+                    <label for="baxter-field">Baxter Of Calofornia</label>
+
+                    <input type="checkbox" name="crew" id="crew-field" checked>
+                    <label for="crew-field">American Crew</label>
+                </section>
+
+                <section class="goods-group">
+                    <h2>Группы товаров:</h2>
+                    <input type="radio" id="goods-radio-shaving-accessories" name="goods-radio" value="shaving-accessories">
+                    <label for="goods-radio-shaving-accessories">Бритвенные принадлежности</label>
+                    <input type="radio" id="goods-radio-care-products" name="goods-radio" value="care-products" checked>
+                    <label for="goods-radio-care-products">Средства для ухода</label>
+                    <input type="radio" id="goods-radio-accessories" name="goods-radio" value="accessories">
+                    <label for="goods-radio-accessories">Аксессуары</label>
+                </section>
+                <input type="submit" value="Показать">
+            </form>
+        </section>
+
+        <section class="goods-gallery">
+            <section class="good">
+                <img src="http://placehold.it/150x100">
+                <p>Набор для путешествий</p>
+                <p class="price">2 900 ₽</p>
+                <span class="button">Купить</span>
+            </section>
+            <ul class="goods-gallery-buttons">
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p class="footer-contacts">
+            Барбершоп «Бородинский»<br>
+            Адрес: г. Санкт-Петербург, Б. Конюшенная, д. 19/8<br>
+            <a href="map.html">Как нас найти?</a><br>
+            Телефон: +7 (812) 666-02-66
+        </p>
+        <div class="footer-social">
+            <b>ДАВАЙТЕ ДРУЖИТЬ!</b>
+            <ul>
+                <li><a class="social-button" href="#">ВКонтакте</a></li>
+                <li><a class="social-button" href="#">Фейсбук</a></li>
+                <li><a class="social-button" href="#">Инстаграмм</a></li>
+            </ul>
+        </div>
+        <p>
+            <b>РАЗРАБОТАНО:</b>
+            <a class="button" href="http://internetcloud.ru">internetcloud.ru</a>
+        </p>
+    </footer>
+</body>
+</html>
