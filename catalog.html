@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Барбершоп "Бородинский"</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="main-navigation">
+            <a class="main-header-logo" href="index.html">
+                <img src="img/logo.svg" width="111" height="24" alt="Логотип барбершопа 'Бородинский'">
+            </a>
+            <ul class="site-navigation">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="info.html">Информация</a></li>
+                <li><a href="news.html">Новости</a></li>
+                <li><a href="price.html">Прайс-лист</a></li>
+                <li class="site-navigation-current"><a href="catalog.html">Магазин</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+            <ul class="user-navigation">
+                <li><a class="login-link">Вход</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1 class="page-title">СРЕДСТВА ДЛЯ УХОДА</h1>
+        <ul class="breadcrumbs">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="catalog.html">Магазин</a></li>
+            <li class="breadcrumbs-current">Средства для ухода</li>
+        </ul>
+
+        <section class="filters">
+            <h2 class="visually-hidden">Фильтр товаров</h2>
+            <form class="filters-form" action="https://echo.htmlacademy.ru" method="get">
+
+                <fieldset class="manufacturers">
+                    <legend>Производители:</legend>
+                    <ul>
+                        <li class="filters-option">
+                            <input class="filter-input" type="checkbox" name="baxter" id="baxter-field" checked>
+                            <label for="baxter-field">Baxter Of California</label>
+                        </li>
+                        <li class="filters-option">
+                            <input class="filter-input" type="checkbox" name="natty" id="natty-field" checked>
+                            <label for="natty-field">Mr. Natty</label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+                <fieldset class="goods-group">
+                    <legend>Группы товаров:</legend>
+                    <ul>
+                        <li class="filters-option">
+                            <input type="radio" id="goods-radio-shaving-accessories" name="goods-radio" value="shaving-accessories">
+                            <label for="goods-radio-shaving-accessories">Бритвенные принадлежности</label>
+                        </li>
+                        <li class="filters-option">
+                            <input type="radio" id="goods-radio-care-products" name="goods-radio" value="care-products" checked>
+                            <label for="goods-radio-care-products">Средства для ухода</label>
+                        </li>
+                        <li class="filters-option">
+                            <input type="radio" id="goods-radio-accessories" name="goods-radio" value="accessories">
+                            <label for="goods-radio-accessories">Аксессуары</label>
+                        </li>
+                    </ul>
+
+                </fieldset>
+                <input class="filter-button button" type="submit" value="Показать">
+            </form>
+        </section>
+
+        <section class="catalog">
+            <h2 class="visually-hidden">Список средств для ухода</h2>
+            <ul class="catalog-list">
+                <li class="catalog-item">
+                    <h3>
+                        <a href="catalog-item.html">
+                            <span class="catalog-category">Набор для путешествий</span>
+                            <span class="catalog-item-title">"Baxter"</span>
+                        </a>
+                    </h3>
+                    <p>
+                        <a href="catalog-item.html">
+                            <img src="http://placehold.it/150x100" width="220" height="165" alt="Набор для путешествий">
+                        </a>
+                    </p>
+                    <p>
+                        <b>2 900 ₽</b>
+                        <a class="button" href="#">Купить</a>
+                    </p>
+                </li>
+            </ul>
+
+            <ul class="pagination-list">
+                <li class="pagination-item"><a href="#">1</a></li>
+                <li class="pagination-item"><a href="#">2</a></li>
+                <li class="pagination-item"><a href="#">3</a></li>
+                <li class="pagination-item"><a href="#">4</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p class="footer-contacts">
+            Барбершоп «Бородинский»<br>
+            Адрес: г. Санкт-Петербург, Б. Конюшенная, д. 19/8<br>
+            <a href="map.html">Как нас найти?</a><br>
+            Телефон: +7 (812) 666-02-66
+        </p>
+        <div class="footer-social">
+            <b>ДАВАЙТЕ ДРУЖИТЬ!</b>
+            <ul>
+                <li><a class="social-button" href="#">ВКонтакте</a></li>
+                <li><a class="social-button" href="#">Фейсбук</a></li>
+                <li><a class="social-button" href="#">Инстаграмм</a></li>
+            </ul>
+        </div>
+        <p>
+            <b>РАЗРАБОТАНО:</b>
+            <a class="button" href="http://internetcloud.ru">internetcloud.ru</a>
+        </p>
+    </footer>
+
+    <section class="modal modal-login">
+        <h2>ЛИЧНЫЙ КАБИНЕТ</h2>
+        <p>ВВЕДИТЕ ПОЖАЛУЙСТА СВОЙ ЛОГИН И ПАРОЛЬ</p>
+        <form class="login-form" action="https://echo.htmlacademy.ru" method="post">
+            <p>
+                <!--<label>ЛОГИН</label>-->
+                <input class="login-form-user" type="text" name="login" placeholder="ЛОГИН">
+                <input class="login-form-password" type="password" name="password" placeholder="ПАРОЛЬ">
+            </p>
+            <p class="login-password-info">
+                <input class="visually-hidden" type="checkbox" name="remember">ЗАПОМНИТЕ МЕНЯ
+                <a class="restore" href="#">Я ЗАБЫЛ ПАРОЛЬ</a>
+                <button class="button" type="submit">ВОЙТИ</button>
+            </p>
+        </form>
+        <span class="modal-close">X</span>
+    </section>
+</body>
+</html>
