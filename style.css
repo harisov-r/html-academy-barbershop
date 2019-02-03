@@ -1,3 +1,11 @@
 .selection {
     border: 1px solid blue;
 }
+
+.main-header-logo {
+    border: 1px dashed blue;
+}
+
+.breadcrumbs {
+    border: 1px dashed green;
+}
