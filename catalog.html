@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Барбершоп "Бородинский"</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&amp;subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <header class="main-header">
-        <nav class="main-navigation">
-            <a class="main-header-logo" href="index.html">
+<body class="inner-page">
+    <header class="primary-header">
+        <nav class="primary-navigation">
+            <a class="primary-header-logo" href="index.html">
                 <img src="img/logo.svg" width="111" height="24" alt="Логотип барбершопа 'Бородинский'">
             </a>
             <ul class="site-navigation">
@@ -20,7 +22,7 @@
                 <li><a href="contacts.html">Контакты</a></li>
             </ul>
             <ul class="user-navigation">
-                <li><a class="login-link">Вход</a></li>
+                <li><a class="login-link" href="login.html">Вход</a></li>
             </ul>
         </nav>
     </header>
@@ -41,12 +43,16 @@
                     <legend>Производители:</legend>
                     <ul>
                         <li class="filters-option">
-                            <input class="filter-input" type="checkbox" name="baxter" id="baxter-field" checked>
-                            <label for="baxter-field">Baxter Of California</label>
+                            <input class="filter-input" type="checkbox" name="baxter" id="id-baxter" checked disabled>
+                            <label for="id-baxter">Baxter Of California</label>
                         </li>
                         <li class="filters-option">
-                            <input class="filter-input" type="checkbox" name="natty" id="natty-field" checked>
-                            <label for="natty-field">Mr. Natty</label>
+                            <input class="filter-input" type="checkbox" name="natty" id="id-natty">
+                            <label for="id-natty">Mr. Natty</label>
+                        </li>
+                        <li class="filters-option">
+                            <input class="filter-input" type="checkbox" name="suavecito" id="id-suavecito" checked>
+                            <label for="id-suavecito">Suavecito</label>
                         </li>
                     </ul>
                 </fieldset>
@@ -55,20 +61,20 @@
                     <legend>Группы товаров:</legend>
                     <ul>
                         <li class="filters-option">
-                            <input type="radio" id="goods-radio-shaving-accessories" name="goods-radio" value="shaving-accessories">
-                            <label for="goods-radio-shaving-accessories">Бритвенные принадлежности</label>
+                            <input class="filter-input" type="radio" id="id-goods-radio-shaving-accessories" name="goods-radio" value="shaving-accessories">
+                            <label for="id-goods-radio-shaving-accessories">Бритвенные принадлежности</label>
                         </li>
                         <li class="filters-option">
-                            <input type="radio" id="goods-radio-care-products" name="goods-radio" value="care-products" checked>
-                            <label for="goods-radio-care-products">Средства для ухода</label>
+                            <input class="filter-input" type="radio" id="id-goods-radio-care-products" name="goods-radio" value="care-products" checked>
+                            <label for="id-goods-radio-care-products">Средства для ухода</label>
                         </li>
                         <li class="filters-option">
-                            <input type="radio" id="goods-radio-accessories" name="goods-radio" value="accessories">
-                            <label for="goods-radio-accessories">Аксессуары</label>
+                            <input class="filter-input" type="radio" id="id-goods-radio-accessories" name="goods-radio" value="accessories">
+                            <label for="id-goods-radio-accessories">Аксессуары</label>
                         </li>
                     </ul>
-
                 </fieldset>
+
                 <input class="filter-button button" type="submit" value="Показать">
             </form>
         </section>
@@ -77,19 +83,47 @@
             <h2 class="visually-hidden">Список средств для ухода</h2>
             <ul class="catalog-list">
                 <li class="catalog-item">
-                    <h3>
-                        <a href="catalog-item.html">
-                            <span class="catalog-category">Набор для путешествий</span>
-                            <span class="catalog-item-title">"Baxter"</span>
-                        </a>
-                    </h3>
-                    <p>
-                        <a href="catalog-item.html">
-                            <img src="http://placehold.it/150x100" width="220" height="165" alt="Набор для путешествий">
-                        </a>
-                    </p>
-                    <p>
+                    <a href="catalog-item.html">
+                        <h3>
+                           <span class="catalog-category">Набор для путешествий</span><br>
+                           <span class="catalog-item-title">"Baxter of California"</span>
+                        </h3>
+                        <p>
+                           <img src="img/product-1.png" width="220" height="165" alt="Набор для путешествий">
+                        </p>
+                    </a>
+                    <p class="catalog-item-price">
                         <b>2 900 ₽</b>
+                        <a class="button" href="#">Купить</a>
+                    </p>
+                </li>
+                <li class="catalog-item">
+                    <a href="catalog-item.html">
+                        <h3>
+                            <span class="catalog-category">Увлажняющий кондиционер</span><br>
+                            <span class="catalog-item-title">«Baxter of California»</span>
+                        </h3>
+                        <p>
+                            <img src="img/product-2.png" width="220" height="165" alt="Набор для путешествий">
+                        </p>
+                    </a>
+                    <p class="catalog-item-price">
+                        <b>750 ₽</b>
+                        <a class="button" href="#">Купить</a>
+                    </p>
+                </li>
+                <li class="catalog-item">
+                    <a href="catalog-item.html">
+                        <h3>
+                            <span class="catalog-category">Гель для волос</span><br>
+                            <span class="catalog-item-title">«SUAVECITO»</span>
+                        </h3>
+                        <p>
+                            <img src="img/product-3.png" width="220" height="165" alt="Набор для путешествий">
+                        </p>
+                    </a>
+                    <p class="catalog-item-price">
+                        <b>290 ₽</b>
                         <a class="button" href="#">Купить</a>
                     </p>
                 </li>
@@ -98,13 +132,13 @@
             <ul class="pagination-list">
                 <li class="pagination-item"><a href="#">1</a></li>
                 <li class="pagination-item"><a href="#">2</a></li>
-                <li class="pagination-item"><a href="#">3</a></li>
+                <li class="pagination-item-current"><a href="#">3</a></li>
                 <li class="pagination-item"><a href="#">4</a></li>
             </ul>
         </section>
     </main>
 
-    <footer class="main-footer">
+    <footer class="primary-footer">
         <p class="footer-contacts">
             Барбершоп «Бородинский»<br>
             Адрес: г. Санкт-Петербург, Б. Конюшенная, д. 19/8<br>
@@ -124,23 +158,5 @@
             <a class="button" href="http://internetcloud.ru">internetcloud.ru</a>
         </p>
     </footer>
-
-    <section class="modal modal-login">
-        <h2>ЛИЧНЫЙ КАБИНЕТ</h2>
-        <p>ВВЕДИТЕ ПОЖАЛУЙСТА СВОЙ ЛОГИН И ПАРОЛЬ</p>
-        <form class="login-form" action="https://echo.htmlacademy.ru" method="post">
-            <p>
-                <!--<label>ЛОГИН</label>-->
-                <input class="login-form-user" type="text" name="login" placeholder="ЛОГИН">
-                <input class="login-form-password" type="password" name="password" placeholder="ПАРОЛЬ">
-            </p>
-            <p class="login-password-info">
-                <input class="visually-hidden" type="checkbox" name="remember">ЗАПОМНИТЕ МЕНЯ
-                <a class="restore" href="#">Я ЗАБЫЛ ПАРОЛЬ</a>
-                <button class="button" type="submit">ВОЙТИ</button>
-            </p>
-        </form>
-        <span class="modal-close">X</span>
-    </section>
 </body>
 </html>

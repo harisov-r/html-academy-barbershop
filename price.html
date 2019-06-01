@@ -2,17 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Store</title>
+    <title>Барбершоп "Бородинский"</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="main-header">
         <nav class="main-navigation">
+            <a class="main-header-logo" href="index.html">
+                <img src="img/logo.svg" width="111" height="24" alt="Логотип барбершопа 'Бородинский'">
+            </a>
             <ul class="site-navigation">
                 <li><a href="index.html">Главная</a></li>
                 <li><a href="info.html">Информация</a></li>
                 <li><a href="news.html">Новости</a></li>
-                <li><a href="price.html">Прайс-лист</a></li>
-                <li><a href="catalog.html">Магазин</a></li>
+                <li class="site-navigation-current"><a href="price.html">Прайс-лист</a></li>
+                <li><a href="shop.html">Магазин</a></li>
                 <li><a href="contacts.html">Контакты</a></li>
             </ul>
             <ul class="user-navigation">
@@ -22,14 +26,18 @@
     </header>
 
     <main class="container">
-        <h1>Прайс-лист</h1>
+        <h1 class="page-title">Прайс-лист</h1>
+        <ul class="breadcrumbs">
+            <li><a href="index.html">Главная</a></li>
+            <li class="breadcrumbs-current">Прайс-лист</li>
+        </ul>
 
         <section class="compliment">
             <p>ИСТИННО МУЖСКАЯ КЛАССИКА</p>
         </section>
 
         <section class="facilities">
-            <h2>МЫ ИСПОЛЬЗУЕМ ТОЛЬКО ЛУЧШИЕ СРЕДСТВА</h2>
+            <h2>МЫ ИСПОЛЬЗУЕМ ТОЛЬКО<br>ЛУЧШИЕ СРЕДСТВА</h2>
                 <ul class="facilities-list">
                     <li class="facilities-item">BAXTER OF CALIFORNIA</li>
                     <li class="facilities-item">MR NATTY</li>
@@ -39,7 +47,7 @@
         </section>
 
         <section class="prices">
-            <h2>ЦЕНЫ НА УСЛУГИ НАШИХ МАСТЕРОВ</h2>
+            <h2>ЦЕНЫ НА УСЛУГИ<br>НАШИХ МАСТЕРОВ</h2>
             <table>
                 <tr>
                     <td>СТРИЖКА</td>
@@ -84,5 +92,24 @@
             <a class="button" href="http://internetcloud.ru">internetcloud.ru</a>
         </p>
     </footer>
+
+    <section class="modal modal-login">
+        <h2>ЛИЧНЫЙ КАБИНЕТ</h2>
+        <p>ВВЕДИТЕ ПОЖАЛУЙСТА СВОЙ ЛОГИН И ПАРОЛЬ</p>
+        <form class="login-form" action="https://echo.htmlacademy.ru" method="post">
+            <p>
+                <!--<label>ЛОГИН</label>-->
+                <input class="login-form-user" type="text" name="login" placeholder="ЛОГИН">
+                <input class="login-form-password" type="password" name="password" placeholder="ПАРОЛЬ">
+            </p>
+            <p class="login-password-info">
+                <input class="visually-hidden" type="checkbox" name="remember">ЗАПОМНИТЕ МЕНЯ
+                <a class="restore" href="#">Я ЗАБЫЛ ПАРОЛЬ</a>
+                <button class="button" type="submit">ВОЙТИ</button>
+            </p>
+        </form>
+        <span class="modal-close">X</span>
+    </section>
+
 </body>
 </html>
