@@ -1,4 +1,26 @@
 
+.visually-hidden {
+    /* Удаляем элемент из потока документа */
+    position: absolute;
+    /* Временное решение для неверно произносимого, размазанного текста */
+    white-space: nowrap;
+    /* Устанавливаем минимально возможный размер (некоторые скринридеры игнорируют элементы с нулевой высотой и шириной) */
+    width: 1px;
+    height: 1px;
+    /* Скрываем вылезающий за границы контент */
+    overflow: hidden;
+    /* Сбрасываем любые свойства, которые могут повлиять на размер элемента */
+    border: 0;
+    padding: 0;
+    /* Вырезаем ту часть контента, которая должна отображаться. */
+    /* Устаревшее свойство clip для старых браузеров */
+    clip: rect(0 0 0 0);
+    /* clip-path для новых браузеров. inset(50%) определяет область вставки, которая позволит контенту исчезнуть.  */
+    clip-path: inset(50%);
+    /* Похоже, никто до конца не понимает, почему тут margin: -1px. Кроме того, это приводит к проблемам (читай: https://github.com/h5bp/html5-boilerplate/issues/1985). */
+    margin: -1px;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -19,172 +41,6 @@ body {
 a {
     text-decoration: none; /*ссылка - без подчеркивания*/
 }
-
-/*-------------------------------------------------------------*/
-/* Стиль для внутренних страниц*/
-/*-------------------------------------------------------------*/
-
-.inner-page {
-    color: #000000;
-
-    background-color: #f9f6f3;
-    background-image: url("../img/pattern-light.jpg");
-    background-position: 0 0;
-    background-repeat: repeat;
-}
-
-.page-title {
-    font-size: 30px;
-    line-height: 42px;
-}
-
-.breadcrumbs {
-    list-style-type: none;
-}
-
-.breadcrumbs a {
-    color: #000000; /*ссылки не наследуют цвет от текста, им отдельно задается цвет*/
-}
-
-.breadcrumbs a:hover,
-.breadcrumbs a:focus {
-    text-decoration: underline;
-}
-
-.breadcrumbs-current {
-    color: #aba9a7;
-}
-
-.filters fieldset {
-    border: none;
-}
-
-.filters legend {
-    font-size: 24px;
-    line-height: 30px;
-}
-
-.filters ul {
-    list-style: none;
-    line-height: 18px;
-}
-
-.filters label:hover,
-.filters label:focus {
-    color: #663d15;
-}
-
-.filter-input:disabled + label {
-    color: #000000;
-    opacity: 0.5;
-}
-
-.catalog ul {
-    list-style: none;
-}
-
-.catalog-item {
-    background-color: #f8f8f8;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.catalog-item:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* тень немного усилили*/
-}
-
-.catalog-category {
-    text-transform: none;
-}
-
-.catalog-item h3 {
-    color: #000000;
-    font-size: 14px;
-    line-height: 18px;
-}
-
-.catalog-item-price b {
-    font-size:14px;
-    line-height: 20px;
-    text-align: center;
-    background-color: #e5e5e5;
-}
-
-.catalog-item-price  .button {
-    line-height: 20px;
-    color: #ffffff;
-}
-
-.product-photos ul,
-.product-info ul {
-    list-style-type: none;
-}
-
-.product-info h3 {
-    font-size: 24px;
-    line-height: 30px;
-}
-
-.product-photo-preview li {
-    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
-}
-
-.product-photo-preview li:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* тень немного усилили*/
-}
-
-.product-photo-full {
-    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
-}
-
-.product-article-number {
-    text-align: right;
-    color: #aeaeae;
-}
-
-.product-price b {
-    font-size:14px;
-    line-height: 20px;
-    text-align: center;
-    background-color: #e5e5e5;
-}
-
-.product-price .button {
-    line-height: 20px;
-    color: #ffffff;
-}
-
-.kit-item {
-    font-size: 14px;
-    line-height: 24px;
-}
-
-.pagination-item a{
-    color: #ffffff;
-    background-color: #000000;
-}
-
-.pagination-item a:hover,
-.pagination-item a:active,
-.pagination-item a:focus {
-    color: #ffffff;
-    background-color: #663d15;
-}
-
-.pagination-item-current a{
-    color: #000000;
-    background-color: #ffffff;
-}
-
-.pagination-item a:hover,
-.pagination-item a:active,
-.pagination-item a:focus {
-    color: #000000;
-    background-color: #ffffff;
-}
-
-
-/* ----------------------------------*/
-
 
 .button {
     font: inherit;
@@ -209,13 +65,24 @@ a {
     line-height: 20px;
     color: #ffffff;
 
-    background-color: #000000;
+    /*сетка*/
+    display: flex; /*превратили контейнер во флекс-контейнер*/
+    flex-direction: column; /*повернули ось с горизонтального в вертикальную*/
+    align-items: center; /*центровка*/
 }
 
 .site-navigation,
 .user-navigation {
     list-style: none; /*убрали маркер у списка (точечку)*/
+    display: flex; /*чтобы пункты меню друг за другом в строку выстроились*/
+
 }
+
+.site-navigation li,
+.user-navigation li{
+    padding: 0 10px; /*чтобы пункты меню не слипались друг с другом*/
+}
+
 
 .site-navigation a,
 .user-navigation a {
@@ -231,10 +98,13 @@ a {
 
 .features-list {
     list-style: none; /*убрали маркер у списка (точечку)*/
+    margin: 0;
+    padding: 0;
 }
 
 .features-item {
     text-align: center;
+    width: 300px;
 }
 
 .features-item h3 {
@@ -258,6 +128,8 @@ a {
 
 .news-list {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .news-item time {
@@ -366,3 +238,378 @@ a {
     text-decoration: none;
 }
 
+/* ************************************************************************************* */
+/* сетки*/
+/* ************************************************************************************* */
+
+.primary-header {
+    margin-bottom: 75px;
+    min-height: 385px;
+}
+
+.primary-header-logo {
+    order: 2; /*порядок следования флекс-элемента 0 - это в обычном порядке, 2 - после остальных*/
+}
+
+.site-navigation {
+    min-width: 620px;
+}
+
+.user-navigation {
+    min-width: 140px;
+}
+
+.primary-navigation-wrapper { /*дополнительная обертка для черного фона, который на всю ширину страницы должен растянуться*/
+    width: 100%; /*чтобы на весь экран*/
+    margin-bottom: 60px;
+    background-color: #000000;
+    display: flex;
+}
+
+.centraler { /*доп.контейнер для центрирования ("центровщик")*/
+    width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+.primary-navigation-wrapper .centraler {
+    display: flex; /*чтобы менюшки друг за другом в строку выстроились*/
+}
+
+.features {
+    margin-bottom: 80px; /*чтобы оттолкнуть Новости от Фиатурес*/
+    border: 5px solid GREEN;
+}
+
+
+.features-list {
+    display: flex;
+    justify-content: space-between; /*размазывает элементы по всему пространству родителя*/
+
+}
+
+
+.index-columns {
+
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 35px;
+}
+
+.news {
+    width: 380px;
+}
+
+.gallery {
+    width: 300px;
+}
+
+.gallery-content {
+    padding: 0;
+    margin: 0;
+}
+
+.contacts {
+    width: 380px;
+}
+
+.appointment {
+    width: 300px;
+}
+
+.primary-footer {
+    margin-top: 65px;
+
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.footer-contacts {
+    width: 320px;
+    margin: 0;
+    margin-right: 80px;
+}
+
+.footer-social {
+    width: 145px;
+    margin: 0;
+}
+
+.footer-copyright {
+    width: 150px;
+    margin: 0;
+    margin-left: auto; /*улетел к правому краю сам*/
+}
+
+.primary-footer .centraler {
+    display: flex;
+
+}
+
+/*-------------------------------------------------------------*/
+/* Стиль для внутренних страниц*/
+/*-------------------------------------------------------------*/
+
+.inner-page {
+    color: #000000;
+
+    /*background-color: #f9f6f3;*/
+    background: #fbf8f5;
+
+    background-image: url("../img/pattern-light2.jpg");
+    background-position: 0 0;
+    background-repeat: repeat;
+}
+
+.inner-page .primary-header {
+    background-color: #000000;
+    min-height: 70px;
+
+}
+
+
+.inner-page .primary-header-logo {
+    order: 0; /*порядок следования флекс-элемента 0 - это в обычном порядке, 2 - после остальных*/
+    padding: 23px 20px;
+}
+
+.inner-page .user-navigation {
+    margin-right: auto;
+    border: 2px dashed white;
+}
+
+.inner-page main {
+
+}
+
+.page-title {
+    font-size: 30px;
+    line-height: 42px;
+}
+
+.breadcrumbs {
+    list-style-type: none; /*убрали точечки у элементов списка*/
+    display: flex;
+    margin: 0;
+    margin-bottom: 50px;
+    padding: 0;
+}
+
+.breadcrumbs li {
+    margin-right: 40px;
+}
+
+.breadcrumbs a {
+    color: #000000; /*ссылки не наследуют цвет от текста, им отдельно задается цвет*/
+}
+
+.breadcrumbs a:hover,
+.breadcrumbs a:focus {
+    text-decoration: underline;
+}
+
+.breadcrumbs-current {
+    color: #aba9a7;
+}
+
+.main-columns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filters {
+    width: 230px;
+}
+
+.filters fieldset {
+    /*border: none;*/
+}
+
+.filters legend {
+    font-size: 24px;
+    line-height: 30px;
+}
+
+.filters ul {
+    list-style: none;
+    line-height: 18px;
+}
+
+.filters label:hover,
+.filters label:focus {
+    color: #663d15;
+}
+
+.filter-input:disabled + label {
+    color: #000000;
+    opacity: 0.5;
+}
+
+.filters-form ul {
+    margin: 0;
+    padding: 0;
+}
+
+.filters-form li {
+    margin-top: 20px;
+}
+
+.manufacturers, .goods-group {
+    margin-bottom: 50px;
+}
+
+.catalog {
+    width: 700px;
+}
+
+.catalog-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    /*justify-content: space-between;*/  /*так делать нельзя, т.к. кол-во карточек может быть нечетным*/
+    flex-wrap: wrap; /*разрешить перенос элементов на новую строку*/
+    margin-bottom: 45px; /*отодвинем кнопки пагинации вниз*/
+}
+
+.catalog ul {
+    list-style: none;
+}
+
+.catalog-item {
+    background-color: #f8f8f8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /*тень вокруг карточки товара*/
+    width: 220px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+.catalog-item:nth-child(3n) { /*у каждого третьего элемента сбрасываем правую границу (отступ)*/
+    margin-right: 0;
+}
+
+.catalog-item:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* тень немного усилили*/
+}
+
+.catalog-category {
+    text-transform: none;
+}
+
+.catalog-item h3 {
+    color: #000000;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.catalog-item-price b {
+    font-size:14px;
+    line-height: 20px;
+    text-align: center;
+    background-color: #e5e5e5;
+    width: 110px; /*не работает!!! почему???*/
+}
+
+.catalog-item-price  .button {
+    line-height: 20px;
+    color: #ffffff;
+    width: 110px; /*не работает!!! почему???*/
+}
+
+
+.product-photos ul,
+.product-info ul {
+    list-style-type: none;
+}
+
+.product-info h3 {
+    font-size: 24px;
+    line-height: 30px;
+}
+
+.product-photo-preview li {
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+}
+
+.product-photo-preview li:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* тень немного усилили*/
+}
+
+.product-photo-full {
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+}
+
+.product-article-number {
+    text-align: right;
+    color: #aeaeae;
+}
+
+.product-price b {
+    font-size:14px;
+    line-height: 20px;
+    text-align: center;
+    background-color: #e5e5e5;
+}
+
+.product-price .button {
+    line-height: 20px;
+    color: #ffffff;
+}
+
+.kit-item {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.pagination-list {
+    width: 194px;
+    display: flex;
+    margin: 0;
+    /*margin-top: 45px;*/
+    padding: 0;
+    justify-content: space-between;
+
+}
+
+.pagination-item {
+    width: 43px;
+    height: 43px;
+    text-align: center;
+    background: #000000;
+    border: 1px dashed black;
+}
+
+.pagination-item a{
+    color: #ffffff;
+    background-color: #000000;
+}
+
+.pagination-item a:hover,
+.pagination-item a:active,
+.pagination-item a:focus {
+    color: #ffffff;
+    background-color: #663d15;
+}
+
+.pagination-item-current a{
+    color: #000000;
+    background-color: #ffffff;
+}
+
+.pagination-item a:hover,
+.pagination-item a:active,
+.pagination-item a:focus {
+    color: #000000;
+    background-color: #ffffff;
+}
+
+
+/* ------------окончание стиля для внутренних страниц----------------------*/
