@@ -3,29 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Барбершоп "Бородинский"</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&amp;subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <header class="main-header">
-        <nav class="main-navigation">
-            <a class="main-header-logo" href="index.html">
-                <img src="img/logo.svg" width="111" height="24" alt="Логотип барбершопа 'Бородинский'">
-            </a>
-            <ul class="site-navigation">
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="info.html">Информация</a></li>
-                <li><a href="news.html">Новости</a></li>
-                <li class="site-navigation-current"><a href="price.html">Прайс-лист</a></li>
-                <li><a href="shop.html">Магазин</a></li>
-                <li><a href="contacts.html">Контакты</a></li>
-            </ul>
-            <ul class="user-navigation">
-                <li><a class="login-link">Вход</a></li>
-            </ul>
+<body class="inner-page">
+    <header class="primary-header">
+        <nav class="primary-navigation">
+            <div class="centraler"> <!-- обертка-центровщик -->
+                <div class="primary-navigation-wrapper"> <!-- еще одна обертка -->
+                    <a class="primary-header-logo" href="index.html">
+                        <img src="img/logo.svg" width="111" height="24" alt="Логотип барбершопа 'Бородинский'">
+                    </a>
+                    <ul class="site-navigation">
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="info.html">Информация</a></li>
+                        <li><a href="news.html">Новости</a></li>
+                        <li class="site-navigation-current"><a href="price.html">Прайс-лист</a></li>
+                        <li><a href="shop.html">Магазин</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                    </ul>
+                    <ul class="user-navigation">
+                        <li><a class="login-link">Вход</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
 
-    <main class="container">
+    <main class="centraler">
         <h1 class="page-title">Прайс-лист</h1>
         <ul class="breadcrumbs">
             <li><a href="index.html">Главная</a></li>
@@ -36,61 +42,71 @@
             <p>ИСТИННО МУЖСКАЯ КЛАССИКА</p>
         </section>
 
-        <section class="facilities">
-            <h2>МЫ ИСПОЛЬЗУЕМ ТОЛЬКО<br>ЛУЧШИЕ СРЕДСТВА</h2>
+        <div class="main-columns">
+            <section class="facilities">
+                <h2>МЫ ИСПОЛЬЗУЕМ ТОЛЬКО<br>ЛУЧШИЕ СРЕДСТВА</h2>
                 <ul class="facilities-list">
                     <li class="facilities-item">BAXTER OF CALIFORNIA</li>
                     <li class="facilities-item">MR NATTY</li>
                     <li class="facilities-item">SUAVECITO</li>
                     <li class="facilities-item">MALIN+GOETZ</li>
                 </ul>
-        </section>
+            </section>
 
-        <section class="prices">
-            <h2>ЦЕНЫ НА УСЛУГИ<br>НАШИХ МАСТЕРОВ</h2>
-            <table>
-                <tr>
-                    <td>СТРИЖКА</td>
-                    <td>1500 Р.</td>
-                </tr>
-                <tr>
-                    <td>СТРИЖКА БОРОДЫ</td>
-                    <td>500 Р.</td>
-                </tr>
-                <tr>
-                    <td>НАКРУТКА УСОВ</td>
-                    <td>350 Р.</td>
-                </tr>
-            </table>
-        </section>
+            <section class="prices">
+                <h2>ЦЕНЫ НА УСЛУГИ<br>НАШИХ МАСТЕРОВ</h2>
+                <table>
+                    <tr>
+                        <td>СТРИЖКА</td>
+                        <td>1500 Р.</td>
+                    </tr>
+                    <tr>
+                        <td>СТРИЖКА БОРОДЫ</td>
+                        <td>500 Р.</td>
+                    </tr>
+                    <tr>
+                        <td>НАКРУТКА УСОВ</td>
+                        <td>350 Р.</td>
+                    </tr>
+                </table>
+            </section>
+        </div>
 
         <section class="about-us">
             <h2>НЕСКОЛЬКО СЛОВ О НАС</h2>
-            <p>НАША ПАРИКМ</p>
-            <p>НАША МАСТЕРСКАЯ</p>
+            <div class="about-us-columns">
+                <p>Наша парикмахерская занимается исключительно мужскими стрижками.
+                    Стрижка каждого клиента для нас - это уникальная и продуманная до мелочей работа.
+                    Мы не работаем на количество, мы делаем качество.</p>
+                <p>Наша мастерская расположена в центре города, поэтому сделать стильную стрижку можно в любое время,
+                    даже в обеденный перерыв. Здесь вы можете погрузиться в удобную для вас атмосферу, чувствовать себя
+                    комфортно и свободно!</p>
+            </div>
         </section>
 
     </main>
 
-    <footer class="main-footer">
-        <p class="footer-contacts">
-            Барбершоп «Бородинский»<br>
-            Адрес: г. Санкт-Петербург, Б. Конюшенная, д. 19/8<br>
-            <a href="map.html">Как нас найти?</a><br>
-            Телефон: +7 (812) 666-02-66
-        </p>
-        <div class="footer-social">
-            <b>ДАВАЙТЕ ДРУЖИТЬ!</b>
-            <ul>
-                <li><a class="social-button" href="#">ВКонтакте</a></li>
-                <li><a class="social-button" href="#">Фейсбук</a></li>
-                <li><a class="social-button" href="#">Инстаграмм</a></li>
-            </ul>
+    <footer class="primary-footer">
+        <div class="centraler">
+            <p class="footer-contacts">
+                Барбершоп «Бородинский»<br>
+                Адрес: г. Санкт-Петербург, Б. Конюшенная, д. 19/8<br>
+                <a href="map.html">Как нас найти?</a><br>
+                Телефон: +7 (812) 666-02-66
+            </p>
+            <div class="footer-social">
+                <b>ДАВАЙТЕ ДРУЖИТЬ!</b>
+                <ul>
+                    <li><a class="social-button" href="#">ВКонтакте</a></li>
+                    <li><a class="social-button" href="#">Фейсбук</a></li>
+                    <li><a class="social-button" href="#">Инстаграмм</a></li>
+                </ul>
+            </div>
+            <p class="footer-copyright">
+                <b>РАЗРАБОТАНО:</b>
+                <a class="button" href="http://internetcloud.ru">internetcloud.ru</a>
+            </p>
         </div>
-        <p>
-            <b>РАЗРАБОТАНО:</b>
-            <a class="button" href="http://internetcloud.ru">internetcloud.ru</a>
-        </p>
     </footer>
 
     <section class="modal modal-login">
