@@ -96,7 +96,7 @@
                         ПН—ПТ: С 10:00 ДО 22:00<br>
                         СБ—ВС: С 10:00 ДО 19:00
                     </p>
-                    <a class="button contacts-button" href="map.html">КАК ПРОЕХАТЬ</a>
+                    <a class="button contacts-button how-find-button" href="map.html">КАК ПРОЕХАТЬ</a>
                     <a class="button contacts-button feedback-button" href="contacts.html">ОБРАТНАЯ СВЯЗЬ</a>
                 </section>
 
@@ -174,21 +174,30 @@
                     <input class="login-form-password" id="user-password" type="password" name="password" placeholder="ПАРОЛЬ">
                 </p>
                 <p class="login-password-info">
-                    <input class="visually-hidden" id="user-remember" type="checkbox" name="remember">
+                    <input class="visually-hidden login-checkbox-input" id="user-remember" type="checkbox" name="remember">
                     <label class="login-checkbox" for="user-remember">ЗАПОМНИТЕ МЕНЯ</label>
                     <a class="restore" href="#">Я ЗАБЫЛ ПАРОЛЬ</a>
                 </p>
-                <button class="button" type="submit">ВОЙТИ</button>
+                <button class="button login-form-submit" type="submit">ВОЙТИ</button>
             </form>
-            <button class="modal-close" type="button">Закрыть</button>
+            <button class="modal-close login-close-button" type="button">Закрыть</button>
         </section>
 
         <section class="modal modal-map">
             <h2 class="visually-hidden">Как до нас добраться</h2>
             <p>
-                <img src="img/map.jpg" width="766" height="560" alt="Офис по адресу: Санкт-Петербург, ул.Большая Конюшенная, 19/8.">
+                <!-- <img src="img/map.jpg" width="766" height="560" alt="Офис по адресу: Санкт-Петербург, ул.Большая Конюшенная, 19/8."> -->
+                <!-- <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.6037872533238!2d30.320858715949118!3d59.938716481876206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696310fca145cc1%3A0x42b32648d8238007!2z0JHQvtC70YzRiNCw0Y8g0JrQvtC90Y7RiNC10L3QvdCw0Y8g0YPQuy4sIDE5LzgsINCh0LDQvdC60YIt0J_QtdGC0LXRgNCx0YPRgNCzLCAxOTExODY!5e0!3m2!1sru!2sru!4v1563520794985!5m2!1sru!2sru"
+                        width="766" height="560" frameborder="0" style="border:0" allowfullscreen>
+                </iframe>
+                -->
+                <iframe src="https://yandex.ru/map-widget/v1/-/CBFXQGSKCD" width="766" height="560" frameborder="1" allowfullscreen="true"></iframe>
             </p>
-            <button class="modal-close" type="button">Закрыть</button>
+            <button class="modal-close  map-close-button" type="button">Закрыть</button>
         </section>
+
+        <script src="js/login-popup.js"></script>
+        <script src="js/map-popup.js"></script>
     </body>
 </html>

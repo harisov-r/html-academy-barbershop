@@ -1,4 +1,8 @@
 
+/******************************************/
+/*             общие стили "на всё"       */
+/******************************************/
+
 .visually-hidden {
     /* Удаляем элемент из потока документа */
     position: absolute;
@@ -56,11 +60,9 @@ img {
 
     font: inherit;
 
-    text-align: center;
-    color: #ffffff;
-    vertical-align: middle;
     text-transform: uppercase;
 
+    color: #ffffff;
     background-color: #000000;
     border: none;
 }
@@ -79,10 +81,41 @@ img {
     background-color: #000000;
 }
 
+.centraler { /*доп.контейнер для центрирования ("центровщик"), используется во многих местах*/
+    width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 10px;
+}
+
+/*----- окончание общих стилей "на всё"-------------------*/
+
+
+/*********************************************/
+/*  стили для главной страницы ( index.html) */
+/*********************************************/
+
+.primary-header {
+    min-width: 980px;
+    margin-bottom: 70px;
+
+}
+
 .primary-navigation {
     font-size: 16px;
     line-height: 20px;
     color: #ffffff;
+}
+
+.primary-navigation-wrapper { /*дополнительная обертка для черного фона, который на всю ширину страницы должен растянуться*/
+    padding: 0;
+    margin-bottom: 60px;
+    background-color: #000000;
+    display: flex;
+}
+
+.primary-navigation-wrapper .centraler {
+    display: flex; /*чтобы менюшки друг за другом в строку выстроились*/
 }
 
 .site-navigation {
@@ -103,8 +136,6 @@ img {
     display: flex; /*чтобы пункты меню друг за другом в строку выстроились*/
 }
 
-
-
 .site-navigation a,
 .user-navigation a {
     color: #ffffff; /*ссылки не наследуют цвет от текста, им отдельно задается цвет*/
@@ -112,7 +143,6 @@ img {
     padding: 26px 20px; /* прямоугольник делается за счет паддингов */
     vertical-align: middle;
     margin: 0;
-
 }
 
 .site-navigation a:hover,
@@ -125,6 +155,26 @@ img {
 .user-navigation .login-link {
     position: relative;
     padding-left: 50px;
+}
+
+.site-navigation-current {
+    position: relative;
+}
+
+.site-navigation-current::after {
+    content: "";
+
+    position: absolute; /* absolute делает любой элемент как-бы блочным, и элемент начинает воспринимать размеры */
+    bottom: 0; /* снизу */
+    height: 5px; /* высотой 5px */
+    left: 20px; /* хитрый трюк - width не задаем, а задаем одновременно левую и правую координаты */
+    right: 20px;
+
+    background-color: #ffffff;
+}
+
+.site-navigation-current a:not([href]) {
+
 }
 
 /* псевдо-элемент */
@@ -151,6 +201,10 @@ img {
     opacity: 1; /* при наведении */
 }
 
+.index-logo {  /* только на странице index */
+    text-align: center;
+}
+
 .features {
     margin-bottom: 77px; /*чтобы оттолкнуть Новости от Фиатурес*/
 
@@ -174,7 +228,6 @@ img {
     margin-right: 0;
 }
 
-
 .features-item h3 {
     font-size: 30px;
     line-height: 42px;
@@ -185,7 +238,7 @@ img {
 
 }
 
-.features-item h3::after {
+.features-item h3::after { /* рисуем ромбики*/
     content: "";
 
     position: absolute; /* absolute делает любой элемент как-бы блочным, и элемент начинает воспринимать размеры */
@@ -197,7 +250,7 @@ img {
     width: 20px;
     height: 20px;
 
-    background-color: white;
+    background-color: #ffffff;
 }
 
 .features-item p {
@@ -286,6 +339,10 @@ img {
     justify-content: space-between;
 }
 
+.contacts {
+    width: 380px;
+}
+
 .contacts-button {
     display: inline-block;
     margin-right: 17px;
@@ -308,7 +365,6 @@ img {
     display: flex;
     flex-wrap: wrap;
 }
-
 
 .appointment-item {
     width: 140px;
@@ -352,12 +408,30 @@ img {
 }
 
 .primary-footer {
+    min-width: 980px;
     color: #ffffff;
 
     background-color: #212121;
-    background-image: url("../img/pattern-dark.jpg");
+    /*background-image: url("../img/pattern-dark.jpg");*/
     background-position: 0 0;
     background-repeat: repeat;
+
+    margin-top: 65px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.primary-footer .centraler {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: flex-start;
+}
+
+.footer-contacts {
+    width: 320px;
+    margin: 0;
+    padding: 0;
+    margin-right: 80px; /* ниже есть еще один  */
 }
 
 .footer-contacts a {
@@ -374,6 +448,7 @@ img {
     text-align: center;
     width: 145px;
     margin: 0;
+    margin-right: 257px;
 }
 
 .footer-social b {
@@ -410,8 +485,11 @@ img {
 .social-button:focus path {
     fill: #000000; /* так как svg - это вставленный прямо в html страницу тег, у него есть подтег fill мы его меняем здесь */
 }
+
 .footer-copyright {
     text-align: center;
+    width: 150px;
+    margin: 0;
 }
 
 .footer-copyright b {
@@ -427,12 +505,89 @@ img {
 }
 
 .modal {
+    position: fixed;
+
     color: #000000;
 
     background-color: #f8f3f0;
     background-image: url("../img/pattern-light.jpg");
     background-position: 0 0;
     background-repeat: repeat;
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.7); /* тень */
+
+    display: none; /* отключу показ */
+ }
+
+@keyframes login-animation {
+    0%      { transform: translateY(-2000px); }
+    70%     { transform: translateY(-30px); }
+    100%    { transform: translateY(0); }
+}
+
+.modal-login-show {
+    display: block;
+    animation-name: login-animation;
+    animation-duration: 0.6s;
+}
+
+.modal-map-show {
+    display: block;
+}
+
+.modal-login {
+    top: 120px;
+    left: 50%;
+    width: 300px;
+    padding: 50px 80px;
+    margin-left: -230px; /* 300 + 80 + 80 паддинги = 460 : 2 = 230 */
+    z-index : 2000;
+}
+
+.modal-map {
+    top: 50%;
+    left: 50%;
+    width: 766px;
+    height: 561px;
+    padding: 0;
+    margin-left: -390px; /* 780 : 2 = 390 */
+    margin-top: -280px;
+    border: 7px solid #ffffff;
+    z-index: 1000;
+}
+
+.modal-map p {
+    margin: 0;
+}
+
+.modal-close { /* крестик закрытия модального окна, он сделан из стандартного элемента button, но текст скрыт, размер уменьшен */
+    position: absolute;
+    top: 0;
+    right: -34px;
+    width: 22px;
+    height: 22px;
+    font-size: 0; /* прячем текст */
+    border: 0;
+    cursor: pointer; /* курсор мышки превращаем в руку */
+    background-color: transparent; /* прозрачный фон */
+}
+
+.modal-close::before,
+.modal-close::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 2px;
+    width: 19px;
+    height: 3px;
+    background-color: #d0d0d0;
+}
+
+.modal-close::before {
+    transform: rotate(45deg);
+}
+
+.modal-close::after {
+    transform: rotate(-45deg);
 }
 
 .modal h2 {
@@ -442,6 +597,11 @@ img {
 
 .login-form input[type="text"],
 .login-form input[type="password"] {
+    box-sizing: border-box;
+    width: 300px;
+    padding: 10px 15px;
+    padding-right: 40px;
+
     font: inherit;
     color: #000000;
     text-transform: uppercase;
@@ -454,10 +614,74 @@ img {
     border-color: #663d15;
 }
 
+.login-form-submit {
+    width: 100%;
+}
+
+.login-form-user {
+    background-image: url("../img/user.svg");
+    background-position: 270px center;
+    background-repeat: no-repeat;
+}
+
+.login-form-password {
+    background-image: url("../img/lock.svg");
+    background-position: 270px center;
+    background-repeat: no-repeat;
+}
+
 .login-checkbox:hover,
 .login-checkbox:focus {
     color: #663d15;
 }
+
+.login-checkbox-input:focus + .login-checkbox::before { /* чтобы при управлении с клавиатуры псевдоквадратик выделился */
+    border-color: #663d15;
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+}
+
+.login-password-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-checkbox {
+    position: relative;
+    margin-left: 30px;
+    display: block;
+    cursor: pointer; /* при наведении рука с пальцем в качестве курсора, а не стрелочка*/
+    user-select: none; /* запретить выделение текста */
+}
+
+.login-checkbox::before { /* рисуем квадратик вместо стандартного чек-бокса */
+    content: "";
+    position: absolute;
+
+    top: 1px;
+    left: -30px;
+
+    width: 16px;
+    height: 16px;
+    border: 2px solid #000000;
+}
+
+.login-checkbox-input:checked + label::after { /* для чекбокса, у которого установлена галочка, рисуем крестик как фон */
+    content: "";
+    position: absolute;
+
+    top: 5px;
+    left: -26px;
+
+    width: 12px;
+    height: 12px;
+
+    background-color: #ffffff;
+    background-image: url("../img/cross.svg"); /* крестик */
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
 
 .restore {
     color: #000000;
@@ -469,70 +693,6 @@ img {
     text-decoration: none;
 }
 
-/* ************************************************************************************* */
-/* сетки*/
-/* ************************************************************************************* */
-
-.primary-header {
-    min-width: 980px;
-    margin-bottom: 70px;
-}
-
-.primary-navigation-wrapper { /*дополнительная обертка для черного фона, который на всю ширину страницы должен растянуться*/
-    padding: 0;
-    margin-bottom: 60px;
-    background-color: #000000;
-    display: flex;
-}
-
-.centraler { /*доп.контейнер для центрирования ("центровщик")*/
-    width: 940px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 10px;
-}
-
-.primary-navigation-wrapper .centraler {
-    display: flex; /*чтобы менюшки друг за другом в строку выстроились*/
-}
-
-.index-logo {
-    text-align: center;
-}
-
-
-.contacts {
-    width: 380px;
-}
-
-.appointment {
-    width: 300px;
-}
-
-.primary-footer {
-    margin-top: 65px;
-
-    padding-top: 60px;
-    padding-bottom: 60px;
-}
-
-.footer-contacts {
-    width: 320px;
-    margin: 0;
-    margin-right: 80px;
-}
-
-.footer-copyright {
-    width: 150px;
-    margin: 0;
-    margin-left: auto; /*улетел к правому краю сам*/
-}
-
-.primary-footer .centraler {
-    display: flex;
-
-}
-
 /*-------------------------------------------------------------*/
 /* Стиль для внутренних страниц*/
 /*-------------------------------------------------------------*/
@@ -540,10 +700,10 @@ img {
 .inner-page {
     color: #000000;
 
-    /*background-color: #f9f6f3;*/
+    background-color: #f9f6f3;
     background: #fbf8f5;
 
-    background-image: url("../img/pattern-light2.jpg");
+    background-image: url("../img/pattern-light.jpg");
     background-position: 0 0;
     background-repeat: repeat;
 }
@@ -551,33 +711,44 @@ img {
 .inner-page .primary-header {
     background-color: #000000;
     min-height: 70px;
-
+    margin-bottom: 48px;
 }
 
+.inner-page .primary-navigation-wrapper {
+    margin-bottom: 0;
+}
 
 .inner-page .primary-header-logo {
-    order: 0; /*порядок следования флекс-элемента 0 - это в обычном порядке, 2 - после остальных*/
     padding: 23px 20px;
 }
 
+.inner-page .site-navigation {
+    width: 600px;
+}
+
 .inner-page .user-navigation {
-    margin-right: auto;
+    margin-left: 85px;
+
 }
 
 .page-title {
     font-size: 30px;
     line-height: 42px;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 15px;
 }
 
 .breadcrumbs {
     list-style-type: none; /*убрали точечки у элементов списка*/
     display: flex;
     margin: 0;
-    margin-bottom: 50px;
+    margin-bottom: 47px;
     padding: 0;
 }
 
 .breadcrumbs li {
+    position: relative;
     margin-right: 40px;
 }
 
@@ -592,11 +763,40 @@ img {
 
 .breadcrumbs-current {
     color: #aba9a7;
+    margin-left: 6px;
+}
+
+/* третий ромбик можно было не через nth-child(1), nth-child(2) делать а так:  */
+/*.breadcrumbs-current::after {*/
+    /*display: none;*/
+/*}*/
+
+.breadcrumbs li::after { /* рисуем ромбики*/
+    content: "";
+
+    position: absolute; /* absolute делает любой элемент как-бы блочным, и элемент начинает воспринимать размеры */
+    top: 8px;
+    right: -25px;
+    transform: rotate(45deg); /* поворот на 45 градусов*/
+
+    width: 7px;
+    height: 7px;
+
+    background-color: #000000;
+}
+
+.breadcrumbs li:last-child {
+    margin-right: 0;
+}
+
+.breadcrumbs-current::after {
+    display: none; /* после последнего пункта ромбик не надо */
 }
 
 .main-columns {
+    margin: 0;
+    padding: 0;
     display: flex;
-    /*justify-content: space-between;*/
 }
 
 .filters {
@@ -605,7 +805,11 @@ img {
 }
 
 .filters fieldset {
-    /*border: none;*/
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 50px;
+    border: none; /* убрать рамку вокруг fieldset */
+
 }
 
 .filters legend {
@@ -633,13 +837,109 @@ img {
     padding: 0;
 }
 
-.filters-form li {
-    margin-top: 20px;
+.filters-form li:nth-child(1) {
+    margin-top: 29px;
 }
 
-.manufacturers, .goods-group {
-    margin-bottom: 50px;
+.filters-form li {
+    margin-top: 19px;
+    margin-left: 44px;
 }
+
+.filter-button {
+
+    display: inline-block; /* чтобы размеры можно было задавать */
+    box-sizing: border-box; /* удобнее задать общую ширину блока, чем высчитывать с паддингами */
+
+    min-width: 112px;
+    min-height: 43px;
+
+    padding-left: 11px;
+
+    font: inherit;
+    font-size: 13px;
+    line-height: 18px;
+    text-transform: uppercase;
+
+    color: #ffffff;
+    background-color: #000000;
+
+    border: none;
+}
+
+.filter-button:hover,
+.filter-button:active,
+.filter-button:focus {
+    color: #ffffff;
+    background-color: #663d15;
+}
+
+.filter-input {
+    display: none; /* чтобы НЕ отображались стандартный чекбокс и радиобаттон */
+}
+
+.filters-option label {
+    position: relative;
+    display: block;
+    cursor: pointer; /* при наведении рука с пальцем в качестве курсора, а не стрелочка*/
+    user-select: none; /* запретить выделение текста */
+}
+
+.manufacturers label::before { /* рисуем квадратик вместо стандартного чек-бокса */
+    content: "";
+    position: absolute;
+
+    top: -1px;
+    left: -43px;
+
+    width: 16px;
+    height: 16px;
+    border: 2px solid #000000;
+}
+
+.manufacturers .filter-input:checked + label::after { /* для чекбокса, у которого установлена галочка, рисуем крестик как фон */
+    content: "";
+    position: absolute;
+
+    top: 3px;
+    left: -39px;
+
+    width: 12px;
+    height: 12px;
+
+    background-color: #ffffff;
+    background-image: url("../img/cross.svg"); /* крестик */
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+.goods-group label::before { /* рисуем квадратик вместо стандартного чек-бокса */
+    content: "";
+    position: absolute;
+
+    top: -1px;
+    left: -43px;
+
+    width: 16px;
+    height: 16px;
+    border: 2px solid #000000;
+    border-radius: 50%; /* делаем из квадрата круг */
+}
+
+.goods-group .filter-input:checked + label::after { /* для радио-баттонов, у которого установлена точка, рисуем черный кружок внутри  */
+    content: "";
+    position: absolute;
+
+    top: 5px;
+    left: -37px;
+
+    width: 8px;
+    height: 8px;
+
+    background-color: #000000;
+    border-radius: 50%; /* делаем из квадрата круг */
+}
+
 
 .catalog {
     width: 700px;
@@ -648,10 +948,11 @@ img {
 .catalog-list {
     margin: 0;
     padding: 0;
+    padding-top: 6px;
     display: flex;
     /*justify-content: space-between;*/  /*так делать нельзя, т.к. кол-во карточек может быть нечетным*/
     flex-wrap: wrap; /*разрешить перенос элементов на новую строку*/
-    margin-bottom: 45px; /*отодвинем кнопки пагинации вниз*/
+    margin-bottom: 25px; /*отодвинем кнопки пагинации вниз*/
 }
 
 .catalog ul {
@@ -664,10 +965,27 @@ img {
     width: 220px;
     margin-bottom: 20px;
     margin-right: 20px;
+    padding-bottom: 10px;
 }
 
 .catalog-item:nth-child(3n) { /*у каждого третьего элемента сбрасываем правую границу (отступ)*/
     margin-right: 0;
+}
+
+.catalog-item a { /* если хочешь поменять порядок следования тегов,
+ превращай во флекс с порядком следования "столбец" и задавай ордер*/
+
+    display: flex;
+    flex-direction: column; /* порядок следования "столбец" - вертикальный сверху вниз*/
+}
+
+.catalog-item h3 {
+    order: 1; /* чтобы заголовок h3 следовал после фото с товаром*/
+}
+
+.catalog-item p {
+    margin: 0;
+    padding: 0;
 }
 
 .catalog-item:hover {
@@ -682,20 +1000,48 @@ img {
     color: #000000;
     font-size: 14px;
     line-height: 18px;
+    margin: 0;
+    margin-bottom: 7px;
+    padding: 0;
+    padding-top: 6px;
+    padding-left: 16px;
+}
+
+.catalog-item-price {
+    display: flex;
+    margin: 15px;
+    margin-top: 0;
 }
 
 .catalog-item-price b {
+    box-sizing: border-box;
+
     font-size:14px;
-    line-height: 20px;
-    text-align: center;
+    line-height: 18px;
+
     background-color: #e5e5e5;
-    width: 110px; /*не работает!!! почему???*/
+
+    margin: 0;
+    margin-left: 16px;
+    padding: 13px 18px 11px;
+    min-width: 109px; /*не работает!!! почему???*/
+    min-height: 43px;
+    text-align: center;
 }
 
-.catalog-item-price  .button {
-    line-height: 20px;
+.catalog-item-price .button {
+    box-sizing: border-box;
+
+    min-width: 78px; /*не работает!!! почему??? ответ: убери паддинги и задавай min-width! */
+    min-height: 43px;
+
+    margin: 0;
+    padding: 0;
+    padding-left: 20px;
+    padding-top: 12px;
+
+    line-height: 18px;
     color: #ffffff;
-    width: 110px; /*не работает!!! почему???*/
 }
 
 .product-photos {
@@ -706,8 +1052,8 @@ img {
 .product-info ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
-
 
 .product-photo-full {
     box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1); /*тень вокруг*/
@@ -733,65 +1079,137 @@ img {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* тень немного усилили*/
 }
 
-
 .product-info {
     width: 380px;
-    margin-left: auto;
+    margin-left: 90px;
     margin-right: 0;
+}
+
+.product-info p {
+    margin: 0;
+    padding: 0;
 }
 
 .product-info h3 {
     font-size: 24px;
     line-height: 30px;
+    margin-bottom: 29px;
 }
 
 .product-info-columns {
+    margin-top: 27px;
     display: flex;
+    margin-bottom: 25px;
 }
 
-
-.product-article-number {
-    margin-left: auto;
+.product-info-columns .product-article-number {
+    margin-left: 176px;
     color: #aeaeae;
 }
 
+.product-info-columns {
+    /*border: 1px solid red;*/
+}
+
+.product-info .product-price {
+    display: flex;
+    margin-bottom: 60px;
+}
+
 .product-price b {
+    box-sizing: border-box;
+
     font-size:14px;
-    line-height: 20px;
-    text-align: center;
+    line-height: 18px;
+
     background-color: #e5e5e5;
+
+    margin: 0;
+    margin-left: 0;
+    padding: 13px 18px 11px;
+    min-width: 109px;
+    min-height: 43px;
+    text-align: center;
 }
 
 .product-price .button {
-    line-height: 20px;
+    box-sizing: border-box;
+
+    min-width: 78px; /*не работает!!! почему??? ответ: убери паддинги и задавай min-width! */
+    min-height: 43px;
+
+    margin: 0;
+    padding: 0;
+    padding-left: 20px;
+    padding-top: 12px;
+
+    line-height: 18px;
     color: #ffffff;
+}
+
+.product-info .product-description {
+    margin-bottom: 40px;
 }
 
 .kit-item {
     font-size: 14px;
     line-height: 24px;
+    margin-left: 20px;
+    position: relative;
+}
+
+.kit-item::before {
+    content: "";
+
+    position: absolute; /* absolute делает любой элемент как-бы блочным, и элемент начинает воспринимать размеры */
+    top: 8px;
+    left: -17px;
+    transform: rotate(45deg); /* поворот на 45 градусов*/
+
+    width: 7px;
+    height: 7px;
+
+    background-color: #000000;
 }
 
 .pagination-list {
-    width: 194px;
+    /*width: 194px;*/
     display: flex;
     margin: 0;
-    /*margin-top: 45px;*/
     padding: 0;
-    justify-content: space-between;
-
+    /*justify-content: space-between;*/
 }
 
-.pagination-item {
+.pagination-item-current {
+    box-sizing: border-box;
     width: 43px;
     height: 43px;
     text-align: center;
-    background: #000000;
+    font-size: 14px;
+    line-height: 18px;
+
+    background: #ffffff;
+    padding-top: 12px;
 }
 
-.pagination-item a{
+.pagination-item-button {
+    width: 43px;
+    height: 43px;
+
+    font-size: 14px;
+    line-height: 18px;
+
+    display: flex; /* внутри всего лишь один элемент - цифра, флекс тут нужен чтобы:
+                    /* 1.превратить цифру во флекс-элемент,*/
+                    /* 2.чтобы он начал воспринимать размеры, и отцентрировать эту цифру во горизонтали и вертикали */
+    align-items: center;
+    justify-content: center;
     color: #ffffff;
     background-color: #000000;
+}
+
+.pagination-item {
+    margin-right: 5px;
 }
 
 .pagination-item a:hover,
@@ -801,25 +1219,37 @@ img {
     background-color: #663d15;
 }
 
-.pagination-item-current a{
-    color: #000000;
-    background-color: #ffffff;
-}
-
-.pagination-item a:hover,
-.pagination-item a:active,
-.pagination-item a:focus {
-    color: #000000;
-    background-color: #ffffff;
-}
-
 .compliment {
+    margin-bottom: 60px;
+}
+
+.compliment h2 {
+    margin: 0;
+    padding: 0;
     font-size: 48px;
     line-height: 48px;
     text-align: center;
-
+    display: flex;
+    align-items: center; /* выравнивание элементов вдоль поперечной оси - черточки вертикально посередине делает */
 }
 
+.compliment h2::before,
+.compliment h2::after { /* для прорисовки черточек */
+    content: "";
+    width: 50px;
+    height: 2px;
+    background: #000000;
+    flex-grow: 1; /* чтобы черточки растянулись на всю длину */
+    flex-shrink: 0; /* если текста будет очень много - чтобы черточки не ужимались меньше 50px*/
+}
+
+.compliment h2::before {
+    margin-right: 25px;
+}
+
+.compliment h2::after {
+    margin-left: 25px;
+}
 
 .main-columns h2{
     margin: 0;
@@ -832,11 +1262,42 @@ img {
     margin-right: 100px;
 }
 
+.facilities h2,
+.prices h2,
+.about-us h2{
+    font-size: 24px;
+    line-height: 30px;
+    margin: 0;
+    margin-bottom: 28px;
+    padding: 0;
+}
+
 .facilities-list {
     list-style: none; /*убрал точечки у списка*/
     margin: 0;
     margin-bottom: 60px;
     padding: 0;
+}
+
+.facilities-item {
+    margin: 0;
+    margin-bottom: 13px;
+    padding: 0;
+    padding-left: 20px;
+    position: relative;
+}ы
+
+.facilities-item::before { /* рисуем ромбики*/
+    content: "";
+
+    position: absolute; /* absolute делает любой элемент как-бы блочным, и элемент начинает воспринимать размеры */
+    top: 7px;
+    left: 1px;
+    transform: rotate(45deg); /* поворот на 45 градусов*/
+
+    width: 8px;
+    height: 8px;
+    background-color: #000000; /* черный цвет ромбика */
 }
 
 .prices {
@@ -845,23 +1306,38 @@ img {
     padding: 0;
 }
 
+.prices h2 {
+    margin-bottom: 34px;
+}
+
 .prices table {
     border-collapse: collapse;
 }
 
 .prices td {
+    box-sizing: border-box;
     border: 2px solid #000000;
-    width: 231px;
+    min-width: 229px;
+    height: 41px;
+    background-color: white;
+}
+
+.prices td:first-child {
+    padding-left: 17px;
+}
+
+
+.prices td:last-child {
+    padding-left: 100px;
 }
 
 .about-us h2{
-    margin-bottom: 30px;
+    margin-bottom: 26px;
 }
 
 .about-us-columns {
     display: flex;
 }
-
 
 .about-us-columns p {
     width: 380px;
@@ -871,6 +1347,30 @@ img {
 
 .about-us-columns p:nth-child(2n) {
     margin-right: 0;
+}
+
+.about-us {
+    margin-bottom: 80px;
+}
+
+.inner-page .primary-footer {
+    margin-top: 49px;
+    padding-top: 56px;
+    padding-bottom: 60px;
+}
+
+.inner-page .footer-contacts {
+    margin: 0;
+}
+
+.inner-page .footer-social {
+    margin-left: 78px;
+    margin-right: 240px;
+}
+
+.inner-page .footer-copyright {
+    margin: 0;
+    padding: 0;
 }
 
 /* ------------окончание стиля для внутренних страниц----------------------*/
